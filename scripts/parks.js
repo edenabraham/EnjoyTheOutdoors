@@ -1,32 +1,42 @@
 
-function locationOption(item){
-    const option= document.createElement("option");
-    option.value=item;
-    option.innerHTML= item;
+function locationOption(item) {
+    const option = document.createElement("option");
+    option.value = item;
+    option.innerHTML = item;
     return option;
 }
-function parkCard(item){
-    const card= document.createElement("div");
+function parkCard(item) {
+    const card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML= item.LocationName;
+    card.innerHTML = item.LocationName;
     return card
 }
 function showCards(list, target) {
-    target.innerHTML= "";
-    list.forEach(item => results.appendChild(parkCard(item)));
+    target.innerHTML = "";
+    list.forEach(item => target.appendChild(parkCard(item)));
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
-    const results= document.getElementById("results");
-    const select= document.getElementById("location");
+    const results = document.getElementById("results");
+    const select = document.getElementById("location");
+    const selectType = document.getElementById("type");
+
+    function applyFilters() {
+        const v = select.selectedOptions[0].value;
+        const matches = nationalParksArray.filter(item => item.State == v || v == "");
+
+        const v2 = selectType.selectedOptions[0].value;
+        const matches2 = matches.filter(item => item.LocationName.toLowerCase().includes(v2.toLowerCase)|| v2== "" );
+
+        showCards(matches2, results);
+    }
+
     locationsArray.forEach(item => select.appendChild(locationOption(item)));
-    
-    select.addEventListener("change", (e) =>{
-        
-        const v= select.selectedOptions[0].value;
-        const matches= nationalParksArray.filter(item => item.State == v);
-        showCards(matches,results);
-    })
+    parkTypesArray.forEach(item => selectType.appendChild(locationOption(item)));
+
+    select.addEventListener("change", applyFilters);
+    selectType.addEventListener("change", applyFilters);
     // shows all cards
     //showCards(nationalParksArray,results);
 });
