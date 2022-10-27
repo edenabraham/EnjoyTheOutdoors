@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const matches = nationalParksArray.filter(item => item.State == v || v == "");
 
         const v2 = selectType.selectedOptions[0].value;
-        const matches2 = matches.filter(item => item.LocationName.toLowerCase().includes(v2.toLowerCase)|| v2== "" );
+        const matches2 = matches.filter(item => item.LocationName.toLowerCase().includes(v2.toLowerCase())|| v2== "" );
 
         showCards(matches2, results);
     }
