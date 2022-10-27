@@ -1,20 +1,25 @@
 nav{
     display: block;
+    margin-bottom: 4em;
+}
+a {
+    text-decoration:none;
+   
 }
 nav a{
     text-decoration: none;
-    background-color: green;
-    color: goldenrod;
-    font-size: 1.6em;
-    padding: 0.5em;
+    background-color: rgb(232, 201, 127);
+    color: rgb(17, 6, 112);
+    font-size: 1.3em;
+    padding: 0.3em;
     margin-right:3px ;
-    border-radius: 0.25em;
+    border-radius: 0.7em;
     display: inline-block;
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
     padding: 1em;
-    background-color: skyblue;
+    background-color: rgb(252, 226, 206);
 
 }
 .card{
@@ -23,9 +28,24 @@ body{
     width: 320px;
     min-height: 100px;
     display: inline-flex;
+    
 }
 .card img{
     width: 100%;
     object-fit: contain;
-    border-radius: 0.19rem;
+    border-radius: 0.5rem;
+    border: 1px inset;
+}
+.home img{
+    margin-top: 6px;
+    max-width: 40vw;
+    border-radius: 6px;
+    border: 1px inset;
+    height: 200px;
+    object-fit: cover;
+}
+.home button{
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 }

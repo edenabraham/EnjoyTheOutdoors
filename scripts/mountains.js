@@ -10,11 +10,20 @@ function mountainTitle(item){
     text.innerHTML = item.name;
     return text;
 }
+
+function mountainDescription(item) {
+    const about= document.createElement("div");
+    about.classList.add("card-description");
+    about.innerHTML = about.desc;
+    return about;
+    
+}
 function mountainCard(item) {
     const card = document.createElement("div");
     card.classList.add("card");
     card.appendChild(mountainImage(item));    
     card.appendChild(mountainTitle(item));
+    card.appendChild(mountainDescription(item));
     return card;
 }
 
